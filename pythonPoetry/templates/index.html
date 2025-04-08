@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dropdown Example</title>
+</head>
+<body>
+    <form method="POST">
+        <select name="my_dropdown">
+            {% for option in options %}
+            <option value="{{ option }}" {% if option == selected_option %}selected{% endif %}>{{ option }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+    {% if selected_option %}
+    <p>You selected: {{ selected_option }}</p>
+    {% endif %}
+</body>
+</html>
