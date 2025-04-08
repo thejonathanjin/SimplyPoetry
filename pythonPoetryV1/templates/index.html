@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Poetry</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Simply Poetry:</h1>
+    <h2>Select Language and Poetry Form</h2>
+    <form>
+        <label for="language">Language:</label>
+        <select name="language" id="language">
+            <option value="">Select Language</option>
+            {% for language in languages %}
+            <option value="{{ language }}">{{ language }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <label for="form">Form:</label>
+        <select name="form" id="form">
+            <option value="">Select Form</option>
+        </select>
+    </form>
+
+    <script>
+        $(document).ready(function() {
+            $('#language').change(function() {
+                var selectedLanguage = $(this).val();
+                $.ajax({
+                    url: '/get_forms',
+                    type: 'GET',
+                    data: {language: selectedLanguage},
+                    success: function(data) {
+                        var formDropdown = $('#form');
+                        formDropdown.empty();
+                        formDropdown.append($('<option></option>').attr('value', '').text('Select Poetry Form'));
+                        $.each(data, function(index, form) {
+                            formDropdown.append($('<option></option>').attr('value', form).text(form));
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+</html>
