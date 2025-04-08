@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Input</title>
+    <style>
+        textarea {
+            width: 500px;
+            height: 200px;
+            padding: 10px;
+            font-size: 16px;
+            color: #333;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+        }
+
+        textarea::placeholder {
+            color: #aaa;
+            font-style: italic;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Enter Text</h1>
+    <form method="POST" action="/">
+        <textarea name="text_input" placeholder="Enter your text here..."></textarea><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    {% if submitted_text %}
+        <h2>You entered:</h2>
+        <p>{{ submitted_text }}</p>
+    {% endif %}
+</body>
+</html>
