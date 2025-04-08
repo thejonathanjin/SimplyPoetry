@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dropdown and Text Input Example</title>
+</head>
+<body>
+    <h2>Select an option and enter text:</h2>
+    <form method="POST">
+        <label for="dropdown">Select an option:</label>
+        <select name="dropdown" id="dropdown">
+            {% for option in dropdown_options %}
+                <option value="{{ option }}" {% if option == selected_option %}selected{% endif %}>
+                    {{ option }}
+                </option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <label for="text_input">Enter text:</label><br>
+        <textarea name="text_input" id="text_input" rows="10" cols="50">{{ text_input or '' }}</textarea>
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+    {% if selected_option and text_input %}
+        <p>You selected: {{ selected_option }}</p>
+        <p>You entered: {{ text_input }}</p>
+    {% endif %}
+</body>
+</html>
