@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Poetry</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Text Input</title>
+    <style>
+        textarea {
+            width: 500px;
+            height: 200px;
+            padding: 10px;
+            font-size: 16px;
+            color: #333;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+        }
+
+        textarea::placeholder {
+            color: #aaa;
+            font-style: italic;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simply Poetry:</h1>
+    <h2>Select Language and Poetry Form</h2>
+    <form>
+        <label for="language">Language:</label>
+        <select name="language" id="language">
+            <option value="">Select Language</option>
+            {% for language in languages %}
+            <option value="{{ language }}">{{ language }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <label for="form">Form:</label>
+        <select name="form" id="form">
+            <option value="">Select Form</option>
+        </select>
+    </form>
+
+    <script>
+        $(document).ready(function() {
+            $('#language').change(function() {
+                var selectedLanguage = $(this).val();
+                $.ajax({
+                    url: '/get_forms',
+                    type: 'GET',
+                    data: {language: selectedLanguage},
+                    success: function(data) {
+                        var formDropdown = $('#form');
+                        formDropdown.empty();
+                        formDropdown.append($('<option></option>').attr('value', '').text('Select Poetry Form'));
+                        $.each(data, function(index, form) {
+                            formDropdown.append($('<option></option>').attr('value', form).text(form));
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+    <h1>Enter Text</h1>
+    <form method="POST" action="/">
+        <textarea name="text_input" placeholder="Enter your text here..."></textarea><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    {% if submitted_text %}
+        <h2>You entered:</h2>
+        <p>{{ submitted_text }}</p>
+    {% endif %}
+</body>
+</html>
