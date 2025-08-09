@@ -89,9 +89,9 @@ poetry_forms = {
 }
 ```
 
-![SimplyPoetry] (https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbWU0eTk2cmpzYXlqeWRnY3oya3c1a2VyZW5sMnRjeXF3ZjQ2dWE2ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/uQhr9Y6c8DJAbiSAOq/giphy.gif)
+<iframe src="https://giphy.com/embed/uQhr9Y6c8DJAbiSAOq" width="480" height="269" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/uQhr9Y6c8DJAbiSAOq">via GIPHY</a></p>
 
-![SimplyPoetry] (https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcG83ZzM1dDJoYmoxb2ExdW9ndHp0YXB1eG80emhzNmRnaXU2c3IzaSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IHWGDeTEFKuRpIJRMK/giphy.gif)
+<iframe src="https://giphy.com/embed/IHWGDeTEFKuRpIJRMK" width="480" height="274" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/IHWGDeTEFKuRpIJRMK">via GIPHY</a></p>
 
 ## Contributing
 
