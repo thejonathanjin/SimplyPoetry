@@ -89,9 +89,9 @@ poetry_forms = {
 }
 ```
 
-![SimplyPoetry] (https://github.com/jonathanatshangrilamusic/SimplyPoetry/blob/main/gifs/poetry1.gif)
+![SimplyPoetry] (/SimplyPoetry/blob/main/gifs/poetry1.gif)
 
-![SimplyPoetry] (https://github.com/jonathanatshangrilamusic/SimplyPoetry/blob/main/gifs/poetry2.gif)
+![SimplyPoetry] (/blob/main/gifs/poetry2.gif)
 
 ## Contributing
 
