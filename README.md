@@ -15,16 +15,32 @@ pip install Flask
 ## Usage
 
 ```python
-import foobar
+from flask import Flask, render_template, request, jsonify
+from poetry_forms import poetry_forms as language_poem_form
 
-# returns 'words'
-foobar.pluralize('word')
+app = Flask(__name__)
 
-# returns 'geese'
-foobar.pluralize('goose')
+@app.route('/')
+def index():
+    languages = list(language_poem_form.keys())
+    return render_template('index.html', languages=languages)
 
-# returns 'phenomenon'
-foobar.singularize('phenomena')
+@app.route('/get_forms')
+def get_forms():
+    selected_language = request.args.get('language')
+    forms = language_poem_form.get(selected_language, {})
+    return jsonify(forms)
+
+@app.route('/index', methods=['GET', 'POST'])
+def text_box():
+    submitted_text = None
+    if request.method == 'POST':
+        submitted_text = request.form['text_input']
+    languages = list(language_poem_form.keys())
+    return render_template('index.html', languages=languages, submitted_text=submitted_text)
+
+if __name__ == '__main__':
+    app.run(debug=True)
 ```
 
 ## Contributing
