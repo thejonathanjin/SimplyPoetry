@@ -73,12 +73,163 @@ poetry_forms = {
 }
 ```
 
+```HTML
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simply Poetry</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        textarea {
+            width: 500px;
+            height: 200px;
+            padding: 10px;
+            font-size: 16px;
+            color: #333;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+        }
+        textarea::placeholder {
+            color: #aaa;
+            font-style: italic;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #poetryDetails, #liveFeed {
+            margin-top: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background: #f9f9f9;
+            width: 520px;
+        }
+        #liveFeed p {
+            border-bottom: 1px solid #ddd;
+            padding: 5px 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simply Poetry</h1>
+    <h2>Select Language and Poetry Form</h2>
+    <form>
+        <label for="language">Language:</label>
+        <select name="language" id="language">
+            <option value="">Select Language</option>
+            {% for language in languages %}
+                <option value="{{ language }}">{{ language }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <label for="form">Form:</label>
+        <select name="form" id="form">
+            <option value="">Select Poetry Form</option>
+        </select>
+    </form>
+
+    <!-- Display details of the selected poetry form -->
+    <div id="poetryDetails"></div>
+
+    <h2>Enter Your Poetry</h2>
+    <!-- Change the action to '#' to prevent actual page navigation -->
+    <form id="poetryForm" method="POST" action="#">
+        <textarea name="text_input" id="text_input" placeholder="Enter your poetry here..."></textarea>
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <h2>Live Preview</h2>
+    <div id="liveFeed"></div>
+
+    <script>
+        $(document).ready(function() {
+            // When language is selected, fetch the available forms
+            $('#language').change(function() {
+                var selectedLanguage = $(this).val();
+                $('#poetryDetails').empty();
+                $('#form').empty();
+                $('#form').append($('<option></option>').attr('value', '').text('Select Poetry Form'));
+                if (selectedLanguage === "") return;
+                $.ajax({
+                    url: '/get_forms',
+                    type: 'GET',
+                    data: { language: selectedLanguage },
+                    success: function(data) {
+                        // 'data' is an object with keys as form names and values as details
+                        $.each(data, function(formName, details) {
+                            $('#form').append($('<option></option>').attr('value', formName).text(formName));
+                        });
+                    },
+                    error: function() {
+                        alert('Error fetching forms');
+                    }
+                });
+            });
+    
+            // When a poetry form is selected, display its details (syllables and lines)
+            $('#form').change(function() {
+                var selectedLanguage = $('#language').val();
+                var selectedForm = $(this).val();
+                if (selectedLanguage === "" || selectedForm === "") {
+                    $('#poetryDetails').empty();
+                    return;
+                }
+                // Fetch the form details again
+                $.ajax({
+                    url: '/get_forms',
+                    type: 'GET',
+                    data: { language: selectedLanguage },
+                    success: function(data) {
+                        var details = data[selectedForm];
+                        if (details) {
+                            var syllables = details.syllables;
+                            var lines = details.lines;
+                            $('#poetryDetails').html("<strong>Required Syllables:</strong> " + syllables + "<br><strong>Number of Lines:</strong> " + lines);
+                        } else {
+                            $('#poetryDetails').html("No details available.");
+                        }
+                    },
+                    error: function() {
+                        alert('Error fetching form details');
+                    }
+                });
+            });
+    
+            // Live preview: append submitted text with timestamp to the feed on form submit
+            $('#poetryForm').on('submit', function(e) {
+                e.preventDefault(); // Prevent actual form submission
+                var text = $('#text_input').val().trim();
+                if (text !== "") {
+                    var timestamp = new Date().toLocaleString(); // Get current timestamp
+                    // Append the new text with timestamp as a paragraph to the live feed
+                    $('#liveFeed').append("<p><strong>[" + timestamp + "]</strong> " + text + "</p>");
+                    // Clear the textarea
+                    $('#text_input').val("");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+```
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first
 to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
+
+A major thanks to Jonathan Tuan Tran and Sahil Gupta for initiating this project!
 
 ## License
 
