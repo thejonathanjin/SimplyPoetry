@@ -1,6 +1,8 @@
-# Foobar
+# SimplyPoetry
 
-Foobar is a Python library for dealing with word pluralization.
+SimplyPoetry is a Python Web App for writing your own and submitting poetry, so far, locally to a development server.
+
+The end goal is to create a Web Server that will collect all submissions from users so that users can share their creative work.
 
 ## Installation
 
