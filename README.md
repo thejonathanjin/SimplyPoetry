@@ -6,10 +6,10 @@ The end goal is to create a Web Server that will collect all submissions from us
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the Flask web framework.
 
 ```bash
-pip install foobar
+pip install Flask
 ```
 
 ## Usage
