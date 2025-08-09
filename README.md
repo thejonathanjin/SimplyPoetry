@@ -89,9 +89,9 @@ poetry_forms = {
 }
 ```
 
-![SimplyPoetry] (SimplyPoetry/blob/main/gifs/poetry1.gif)
+![SimplyPoetry] (https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbWU0eTk2cmpzYXlqeWRnY3oya3c1a2VyZW5sMnRjeXF3ZjQ2dWE2ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/uQhr9Y6c8DJAbiSAOq/giphy.gif)
 
-![SimplyPoetry] (blob/main/gifs/poetry2.gif)
+![SimplyPoetry] (https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcG83ZzM1dDJoYmoxb2ExdW9ndHp0YXB1eG80emhzNmRnaXU2c3IzaSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IHWGDeTEFKuRpIJRMK/giphy.gif)
 
 ## Contributing
 
