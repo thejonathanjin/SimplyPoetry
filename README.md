@@ -36,4 +36,6 @@ Please make sure to update tests as appropriate.
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+Creative Commons
+
+[The Unlicense] (https://choosealicense.com/licenses/unlicense/)
