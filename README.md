@@ -89,9 +89,9 @@ poetry_forms = {
 }
 ```
 
-[gifs/poetry1.gif]
+[SimplyPoetry/gifs/poetry1.gif]
 
-[gifs/poetry1.gif]
+[SimplyPoetry/gifs/poetry1.gif]
 
 ## Contributing
 
