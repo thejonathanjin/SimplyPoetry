@@ -1,8 +1,12 @@
-# SimplyPoetry
+# m2C: Mobile to Car Communication Module w/ AndroidOS
 
-SimplyPoetry is a Python Web App for writing your own and submitting poetry, so far, locally to a development server.
+m2C is a capstone project among 4 students from San Jose State University.
 
-The end goal is to create a Web Server that will collect all submissions from users so that users can share their creative work.
+The team aimed to achieve connectivity between an Android (and iOS TBD) mobile device and an automobile.
+
+Successfully installed a prototype version in April 2014 in Hayward, Fremont, Milpitas, and San Jose California.
+
+Currently, the lead competitor is Viper SmartStart.
 
 ## Installation
 
