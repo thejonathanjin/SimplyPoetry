@@ -89,7 +89,7 @@ poetry_forms = {
 }
 ```
 
-(https://github.com/thejonathanjin/SimplyPoetry/blob/main/gifs/poetry2.gif?raw=true)
+![Poetry Gif] (https://github.com/thejonathanjin/SimplyPoetry/blob/main/gifs/poetry2.gif?raw=true)
 
 ## Contributing
 
