@@ -89,7 +89,7 @@ poetry_forms = {
 }
 ```
 
-![SimplyPoetry] (https://github.com/thejonathanjin/SimplyPoetry/blob/main/pythonPoetryV5/screenshots/simply_poetry.png?raw=true)
+![[SimplyPoetry] (https://github.com/thejonathanjin/SimplyPoetry/blob/main/pythonPoetryV5/screenshots/simply_poetry.png?raw=true)](https://github.com/thejonathanjin/SimplyPoetry/blob/main/pythonPoetryV5/screenshots/simply_poetry.png?raw=true)
 
 ## Contributing
 
